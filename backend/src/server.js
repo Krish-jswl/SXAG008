@@ -9,7 +9,12 @@ const app = express();
 
 // --- Middleware ---
 // Allow cross-origin requests from your frontend
-app.use(cors());
+// Replace your current app.use(cors()) with this:
+app.use(cors({
+    origin: '*', // Allows all origins - perfect for hackathons
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
 // Parse incoming JSON payloads
 app.use(express.json());
 
